@@ -27,6 +27,13 @@ async function detail({ params: { id } }) {
 
     const response = res.data.memes.filter(element => element.id == id);
 
+    const memeImage = localStorage.getItem('user-meme');
+    const imageRes = JSON.parse(memeImage);
+
+    const image = imageRes.filter(element => element.id == id);
+    
+    image[0] && setOutputImage(image[0].url);
+
     setResult(response);
   };
 
@@ -36,6 +43,24 @@ async function detail({ params: { id } }) {
     const res = await fetch(`https://api.imgflip.com/caption_image?template_id=${id}&username=GhulamMuhiuddin&password=786muhiuddin786&text0=${e.target[0].value}&text1=${e.target[1].value}`);
 
     const response = await res.json();
+
+    const memeImage = localStorage.getItem('user-meme');
+    const imageRes = JSON.parse(memeImage);
+
+    const image = imageRes.filter(element => element.id == id);
+
+    const indexOfImage = imageRes.indexOf(image[0]);
+    
+    indexOfImage == -1 ? imageRes.push({
+      url: response.data.url,
+      id: id
+    }) : 
+    imageRes.splice(indexOfImage, 1, {
+      url: response.data.url,
+      id: id
+    });
+
+    localStorage.setItem('user-meme', JSON.stringify(imageRes));
     
     setOutputImage(response.data.url);
   };
@@ -61,7 +86,7 @@ async function detail({ params: { id } }) {
 
       </div>
     </>
-  )
-}
+  );
+};
 
 export default detail;
