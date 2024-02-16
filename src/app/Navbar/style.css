@@ -1,0 +1,20 @@
+.navbar-container {
+    height: 13vh;
+    width: 100%;
+    font-size: 1.3rem;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    box-shadow: 0.5px 0px 3px black;
+}
+
+.image {
+    border-radius: 50%;
+    margin-left: 19px;
+}
+
+.navbar-container h1 {
+    margin-left: 19px;
+    font-size: 35px;
+}

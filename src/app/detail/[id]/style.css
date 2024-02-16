@@ -1,0 +1,44 @@
+.edit-meme-container{
+    margin-top: 15vh;
+    display: flex;
+    justify-content: center;
+    height: 85vh;
+}
+
+.meme-image{
+height: 99px !important;
+width: 99px !important;
+}
+
+.edit-meme-container form {
+    margin-top: 11px;
+    padding: 7px 11px;
+    height: 23vh;
+    min-width: 25%;
+    box-shadow: 0px 0px 3px rgb(0, 0, 0);
+}
+
+.edit-meme-container form input{
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 9px;
+    outline: none;
+    border: none;
+    margin: 5px 1px;
+    min-width: 100%;
+    width: 100%;
+    box-shadow: 0px 0px 3px gray;
+}
+
+.edit-meme-container form button{
+    padding: 9px 5px;
+    font-size: 19px;
+    border-radius: 9px;
+    outline: none;
+    border: none;
+    margin: 5px 1px;
+    min-width: 100%;
+    width: 100%;
+    box-shadow: 0px 0px 3px gray;
+    cursor: pointer;
+}
