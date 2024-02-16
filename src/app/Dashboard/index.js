@@ -11,7 +11,7 @@ async function Dashboard() {
   return (
     <div className='container'>
         {result.data.memes.map((element, index) => {
-            return <div className='meme-cart'>
+            return <div key={index} className='meme-cart'>
                 <Image className='meme-images' width={313} height={313} src={element?.url} alt={`Meme ${index} image`} />
                 <br />
                 <br />
