@@ -44,7 +44,7 @@ function Detail({ params: { id } }) {
     const response = await getOutputImageData(id, e.target[0].value, e.target[1].value);
 
     const memeImage = localStorage.getItem('user-meme');
-    const imageRes = JSON.parse(memeImage);
+    const imageRes = JSON.parse(memeImage) ? JSON.parse(memeImage) : [];
 
     const image = imageRes.filter(element => element.id == id);
 
@@ -54,10 +54,10 @@ function Detail({ params: { id } }) {
       url: response.data.url,
       id: id
     }) :
-      imageRes.splice(indexOfImage, 1, {
+    imageRes.splice(indexOfImage, 1, {
         url: response.data.url,
         id: id
-      });
+    });
 
     localStorage.setItem('user-meme', JSON.stringify(imageRes));
 
