@@ -5,8 +5,9 @@ import { getMemes, getOutputImageData } from '@/config/api';
 import Image from 'next/image';
 import './style.css';
 import Navbar from '@/app/Navbar';
+import Loading from '@/app/loading';
 
-async function detail({ params: { id } }) {
+function detail({ params: { id } }) {
 
   const [outputImage, setOutputImage] = useState();
   const [result, setResult] = useState([]);
@@ -62,14 +63,17 @@ async function detail({ params: { id } }) {
     
     setOutputImage(response.data.url);
   };
+
+  if(!result[0]?.url){
+return <Loading />
+  };
   
   return (
     <>
       <Navbar />
       <div className='edit-meme-container'>
-
-        <Image style={imageStyle} width={500}
-          height={100} src={result[0]?.url} alt='meme image' />
+      {result[0]?.url && <Image style={imageStyle} width={500}
+          height={100} src={result[0]?.url} alt='meme image' />}
 
         <form onSubmit={changeImage}>
           <input required placeholder='Enter first text'/>
