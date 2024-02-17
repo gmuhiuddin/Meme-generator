@@ -29,7 +29,7 @@ function Detail({ params: { id } }) {
     const response = res.data.memes.filter(element => element.id == id);
 
     const memeImage = localStorage.getItem('user-meme');
-    const imageRes = JSON.parse(memeImage);
+    const imageRes = JSON.parse(memeImage) ? JSON.parse(memeImage) : [];
 
     const image = imageRes.filter(element => element.id == id);
 
