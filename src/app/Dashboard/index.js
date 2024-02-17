@@ -17,7 +17,7 @@ async function Dashboard() {
                 <br />
                 <h2>{element.name}</h2>
                 <br />
-                <Link className='link' href={`detail/${element.id}`} >Generate meme</Link>
+                <Link className='link' href={`/Detail/${element.id}`} >Generate meme</Link>
                 </div>
         })}
     </div>

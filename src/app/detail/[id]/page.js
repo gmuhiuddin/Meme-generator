@@ -7,7 +7,7 @@ import './style.css';
 import Navbar from '@/app/Navbar';
 import Loading from '@/app/loading';
 
-function detail({ params: { id } }) {
+function Detail({ params: { id } }) {
 
   const [outputImage, setOutputImage] = useState();
   const [result, setResult] = useState([]);
@@ -91,4 +91,4 @@ function detail({ params: { id } }) {
   );
 };
 
-export default detail;
+export default Detail;
