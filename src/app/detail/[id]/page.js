@@ -32,7 +32,7 @@ function detail({ params: { id } }) {
     const imageRes = JSON.parse(memeImage);
 
     const image = imageRes.filter(element => element.id == id);
-    
+
     image[0] && setOutputImage(image[0].url);
 
     setResult(response);
@@ -49,36 +49,36 @@ function detail({ params: { id } }) {
     const image = imageRes.filter(element => element.id == id);
 
     const indexOfImage = imageRes.indexOf(image[0]);
-    
+
     indexOfImage == -1 ? imageRes.push({
       url: response.data.url,
       id: id
-    }) : 
-    imageRes.splice(indexOfImage, 1, {
-      url: response.data.url,
-      id: id
-    });
+    }) :
+      imageRes.splice(indexOfImage, 1, {
+        url: response.data.url,
+        id: id
+      });
 
     localStorage.setItem('user-meme', JSON.stringify(imageRes));
-    
+
     setOutputImage(response.data.url);
   };
 
-  if(!result[0]?.url){
-return <Loading />
+  if (!result[0]?.url) {
+    return <Loading />
   };
-  
+
   return (
     <>
       <Navbar />
       <div className='edit-meme-container'>
-      {result[0]?.url && <Image style={imageStyle} width={500}
+        {result[0]?.url && <Image style={imageStyle} width={500}
           height={100} src={result[0]?.url} alt='meme image' />}
 
         <form onSubmit={changeImage}>
-          <input required placeholder='Enter first text'/>
+          <input required placeholder='Enter first text' />
           <br />
-          <input required placeholder='Enter second text'/>
+          <input required placeholder='Enter second text' />
           <br />
           <button type='submit'>Generate Meme</button>
         </form>
