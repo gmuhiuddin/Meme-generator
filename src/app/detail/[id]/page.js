@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { getMemes } from '@/config/api';
+import { getMemes, getOutputImageData } from '@/config/api';
 import Image from 'next/image';
 import './style.css';
 import Navbar from '@/app/Navbar';
@@ -40,9 +40,7 @@ async function detail({ params: { id } }) {
   const changeImage = async (e) => {
     e.preventDefault();
 
-    const res = await fetch(`https://api.imgflip.com/caption_image?template_id=${id}&username=GhulamMuhiuddin&password=786muhiuddin786&text0=${e.target[0].value}&text1=${e.target[1].value}`);
-
-    const response = await res.json();
+    const response = await getOutputImageData(id, e.target[0].value, e.target[1].value);
 
     const memeImage = localStorage.getItem('user-meme');
     const imageRes = JSON.parse(memeImage);
