@@ -1,3 +1,20 @@
+@media screen and (max-width: 701px) {
+    .edit-meme-container{
+        display: block !important;
+    }
+
+    .meme-image{
+        width: 85vw !important;
+        height: 71vh !important;
+    margin: 11px auto !important;
+    }
+
+    .edit-meme-container form {
+        width: 85vw !important;
+        margin: 11px auto !important;
+    }
+}
+
 .edit-meme-container{
     margin-top: 15vh;
     display: flex;
@@ -6,20 +23,22 @@
 }
 
 .meme-image{
-height: 99px !important;
-width: 99px !important;
+    width: 33vw;
+    height: 79vh;
+    box-shadow: 0px 0px 3px black;
+    display: block;
+margin: 11px;
 }
 
 .edit-meme-container form {
-    margin-top: 11px;
-    padding: 7px 11px;
-    height: 23vh;
-    min-width: 25%;
+    margin: 11px 0px;
+    padding: 19px 11px;
+    width: 29vw;
     box-shadow: 0px 0px 3px rgb(0, 0, 0);
 }
 
 .edit-meme-container form input{
-    padding: 5px;
+    padding: 7.9px 5px;
     font-size: 15px;
     border-radius: 9px;
     outline: none;
@@ -40,5 +59,14 @@ width: 99px !important;
     min-width: 100%;
     width: 100%;
     box-shadow: 0px 0px 3px gray;
+    cursor: pointer;
+}
+
+.add-input-txt{
+    display: block;
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 5px;
     cursor: pointer;
 }
