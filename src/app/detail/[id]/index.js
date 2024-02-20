@@ -71,11 +71,14 @@ function Index({ res, id }) {
       <div>
       <form onSubmit={changeImage}>
         {Array.from({ length: inputs }, (_, index) => (
+          <span style={{display:'flex', alignItems:'center'}}>
           <input
-            key={index}
-            required
-            placeholder={`Enter text ${values[index]}`}
-          />
+          key={index}
+          required
+          placeholder={`Enter text ${values[index]}`}
+        />
+        {inputs != 1 && <span onClick={() => setInputs(inputs-1)} className='cross-sign'>×</span>}
+          </span>
         ))}
         {inputs != 4 && <span onClick={() => setInputs(inputs + 1)} className='add-input-txt'>Add input</span>}
         <button type='submit'>Generate Meme</button>
