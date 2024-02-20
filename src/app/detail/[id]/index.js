@@ -65,6 +65,7 @@ function Index({ res, id }) {
 
   return (
     <div className='edit-meme-container'>
+
       {result[0]?.url && <Image className='meme-image' width={500}
         height={100} src={result[0]?.url} alt='meme image' />}
 
@@ -87,7 +88,7 @@ function Index({ res, id }) {
 
       {outputImage && <Image className='meme-image' width={500}
         height={100} src={outputImage} alt='meme image' />}
-
+<br />
     </div>
   );
 };
