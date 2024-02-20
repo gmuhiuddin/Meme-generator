@@ -78,7 +78,7 @@ function Index({ res, id }) {
           required
           placeholder={`Enter text ${values[index]}`}
         />
-        {inputs != 1 && <span onClick={() => setInputs(inputs-1)} className='cross-sign'>×</span>}
+        {inputs != 1 && <span key={index} onClick={() => setInputs(inputs-1)} className='cross-sign'>×</span>}
           </span>
         ))}
         {inputs != 4 && <span onClick={() => setInputs(inputs + 1)} className='add-input-txt'>Add input</span>}
