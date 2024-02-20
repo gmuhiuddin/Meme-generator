@@ -72,7 +72,7 @@ function Index({ res, id }) {
       <div>
       <form onSubmit={changeImage}>
         {Array.from({ length: inputs }, (_, index) => (
-          <span style={{display:'flex', alignItems:'center'}}>
+          <span key={index} style={{display:'flex', alignItems:'center'}}>
           <input
           key={index}
           required
