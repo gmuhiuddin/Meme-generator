@@ -1,12 +1,12 @@
 @media screen and (max-width: 701px) {
-    .edit-meme-container{
+    .edit-meme-container {
         display: block !important;
     }
 
-    .meme-image{
+    .meme-image {
         width: 85vw !important;
         height: 71vh !important;
-    margin: 11px auto !important;
+        margin: 11px auto !important;
     }
 
     .edit-meme-container form {
@@ -15,19 +15,19 @@
     }
 }
 
-.edit-meme-container{
+.edit-meme-container {
     margin-top: 15vh;
     display: flex;
     justify-content: center;
     height: 85vh;
 }
 
-.meme-image{
+.meme-image {
     width: 33vw;
     height: 79vh;
     box-shadow: 0px 0px 3px black;
     display: block;
-margin: 11px;
+    margin: 11px;
 }
 
 .edit-meme-container form {
@@ -37,7 +37,7 @@ margin: 11px;
     box-shadow: 0px 0px 3px rgb(0, 0, 0);
 }
 
-.edit-meme-container form input{
+.edit-meme-container form input {
     padding: 7.9px 5px;
     font-size: 15px;
     border-radius: 9px;
@@ -49,7 +49,7 @@ margin: 11px;
     box-shadow: 0px 0px 3px gray;
 }
 
-.edit-meme-container form button{
+.edit-meme-container form button {
     padding: 9px 5px;
     font-size: 19px;
     border-radius: 9px;
@@ -62,7 +62,7 @@ margin: 11px;
     cursor: pointer;
 }
 
-.add-input-txt{
+.add-input-txt {
     display: block;
     text-align: right;
     font-size: 1.2rem;
