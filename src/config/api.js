@@ -11,16 +11,16 @@ const getOutputImageData = async (id, txts) => {
     
     switch (txts.length) {
         case 1:
-            api = `https://api.imgflip.com/caption_image?template_id=${id}&username=GhulamMuhiuddin&password=786muhiuddin786&text0=${txts[0]}`;
+            api = `https://api.imgflip.com/caption_image?template_id=${id}&username=GhulamMuhiuddin&password=786muhiuddin786&boxes[0][text]=${txts[0]}`;
             break;
         case 2:
-            api = `https://api.imgflip.com/caption_image?template_id=${id}&username=GhulamMuhiuddin&password=786muhiuddin786&text0=${txts[0]}&text1=${txts[1]}`;
+            api = `https://api.imgflip.com/caption_image?template_id=${id}&username=GhulamMuhiuddin&password=786muhiuddin786&boxes[0][text]=${txts[0]}&boxes[1][text]=${txts[1]}`;
             break;
         case 3:
-            api = `https://api.imgflip.com/caption_image?template_id=${id}&username=GhulamMuhiuddin&password=786muhiuddin786&text0=${txts[0]}&text1=${txts[1]}&text2=${txts[2]}`;
+            api = `https://api.imgflip.com/caption_image?template_id=${id}&username=GhulamMuhiuddin&password=786muhiuddin786&boxes[0][text]=${txts[0]}&boxes[1][text]=${txts[1]}&boxes[2][text]=${txts[2]}`;
             break;
         case 4:
-            api = `https://api.imgflip.com/caption_image?template_id=${id}&username=GhulamMuhiuddin&password=786muhiuddin786&text0=${txts[0]}&text1=${txts[1]}&text2=${txts[2]}&text3=${txts[3]}`;
+            api = `https://api.imgflip.com/caption_image?template_id=${id}&username=GhulamMuhiuddin&password=786muhiuddin786&boxes[0][text]=${txts[0]}&boxes[1][text]=${txts[1]}&boxes[2][text]=${txts[2]}&boxes[3][text]=${txts[3]}`;
             break;
     };
 console.log(api);

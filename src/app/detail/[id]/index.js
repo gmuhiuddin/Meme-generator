@@ -8,7 +8,6 @@ import './style.css'
 
 function Index({ res, id }) {
   const [outputImage, setOutputImage] = useState();
-  const [inputs, setInputs] = useState(1);
   const [result, setResult] = useState([]);
 
   const values = ['first', 'second', 'third', 'fourth']
@@ -37,7 +36,7 @@ function Index({ res, id }) {
 
     let arr = [];
 
-    for (let i = 0; i < inputs; i++) {
+    for (let i = 0; i < result[0]?.box_count; i++) {
       arr.push(e.target[i].value)
     };
 
@@ -64,7 +63,7 @@ function Index({ res, id }) {
 
     setOutputImage(response.data.url);
   };
-
+  
   return (
     <div className='edit-meme-container'>
 
@@ -73,17 +72,16 @@ function Index({ res, id }) {
 
       <div>
         <form onSubmit={changeImage}>
-          {Array.from({ length: inputs }, (_, index) => (
+          {Array.from({ length: result[0]?.box_count}, (_, index) => (
             <span key={index} style={{ display: 'flex', alignItems: 'center' }}>
               <input
                 key={index}
                 required
                 placeholder={`Enter text ${values[index]}`}
               />
-              {inputs != 1 && <span key={index} onClick={() => setInputs(inputs - 1)} className='cross-sign'>×</span>}
             </span>
           ))}
-          {inputs != 4 && <span onClick={() => setInputs(inputs + 1)} className='add-input-txt'>Add input</span>}
+
           <button type='submit'>Generate Meme</button>
           <br />
           {outputImage &&
