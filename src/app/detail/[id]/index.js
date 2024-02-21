@@ -64,7 +64,7 @@ function Index({ res, id }) {
 
     setOutputImage(response.data.url);
   };
-  
+
   return (
     <div className='edit-meme-container'>
 
@@ -86,7 +86,9 @@ function Index({ res, id }) {
           {inputs != 4 && <span onClick={() => setInputs(inputs + 1)} className='add-input-txt'>Add input</span>}
           <button type='submit'>Generate Meme</button>
           <br />
-          <button onClick={() => saveAs(outputImage, `${result[0].name} meme`)}>Download</button>
+          {outputImage &&
+            <button onClick={() => saveAs(outputImage, `${result[0].name} meme`)}>Download</button>
+          }
         </form>
       </div>
 
