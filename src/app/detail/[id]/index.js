@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { getOutputImageData } from '@/config/api';
+import { saveAs } from 'file-saver';
 import Image from 'next/image';
 import './style.css'
 
@@ -21,6 +22,7 @@ function Index({ res, id }) {
     const response = res.data.memes.filter(element => element.id == id);
 
     const memeImage = localStorage.getItem('user-meme');
+
     const imageRes = JSON.parse(memeImage) ? JSON.parse(memeImage) : [];
 
     const image = imageRes.filter(element => element.id == id);
@@ -62,7 +64,7 @@ function Index({ res, id }) {
 
     setOutputImage(response.data.url);
   };
-
+  
   return (
     <div className='edit-meme-container'>
 
@@ -70,25 +72,27 @@ function Index({ res, id }) {
         height={100} src={result[0]?.url} alt='meme image' />}
 
       <div>
-      <form onSubmit={changeImage}>
-        {Array.from({ length: inputs }, (_, index) => (
-          <span key={index} style={{display:'flex', alignItems:'center'}}>
-          <input
-          key={index}
-          required
-          placeholder={`Enter text ${values[index]}`}
-        />
-        {inputs != 1 && <span key={index} onClick={() => setInputs(inputs-1)} className='cross-sign'>×</span>}
-          </span>
-        ))}
-        {inputs != 4 && <span onClick={() => setInputs(inputs + 1)} className='add-input-txt'>Add input</span>}
-        <button type='submit'>Generate Meme</button>
-      </form>
+        <form onSubmit={changeImage}>
+          {Array.from({ length: inputs }, (_, index) => (
+            <span key={index} style={{ display: 'flex', alignItems: 'center' }}>
+              <input
+                key={index}
+                required
+                placeholder={`Enter text ${values[index]}`}
+              />
+              {inputs != 1 && <span key={index} onClick={() => setInputs(inputs - 1)} className='cross-sign'>×</span>}
+            </span>
+          ))}
+          {inputs != 4 && <span onClick={() => setInputs(inputs + 1)} className='add-input-txt'>Add input</span>}
+          <button type='submit'>Generate Meme</button>
+          <br />
+          <button onClick={() => saveAs(outputImage, `${result[0].name} meme`)}>Download</button>
+        </form>
       </div>
 
       {outputImage && <Image className='meme-image' width={500}
         height={100} src={outputImage} alt='meme image' />}
-<br />
+      <br />
     </div>
   );
 };
