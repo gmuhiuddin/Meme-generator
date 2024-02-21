@@ -22,8 +22,11 @@ const getOutputImageData = async (id, txts) => {
         case 4:
             api = `https://api.imgflip.com/caption_image?template_id=${id}&username=GhulamMuhiuddin&password=786muhiuddin786&boxes[0][text]=${txts[0]}&boxes[1][text]=${txts[1]}&boxes[2][text]=${txts[2]}&boxes[3][text]=${txts[3]}`;
             break;
+            case 5:
+            api = `https://api.imgflip.com/caption_image?template_id=${id}&username=GhulamMuhiuddin&password=786muhiuddin786&boxes[0][text]=${txts[0]}&boxes[1][text]=${txts[1]}&boxes[2][text]=${txts[2]}&boxes[3][text]=${txts[3]}&boxes[4][text]=${txts[4]}`;
+            break;
     };
-console.log(api);
+    
     const res = await fetch(api);
 
     const result = await res.json();
