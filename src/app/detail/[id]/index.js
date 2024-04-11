@@ -10,7 +10,7 @@ function Index({ res, id }) {
   const [outputImage, setOutputImage] = useState();
   const [result, setResult] = useState([]);
 
-  const values = ['first', 'second', 'third', 'fourth', 'fifth']
+  const values = ['first', 'second', 'third', 'fourth', 'fifth'];
 
   useEffect(() => {
     getRes();
